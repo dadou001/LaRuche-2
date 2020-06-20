@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Fragment, FragmentService } from '@laruche/fragments';
+import { Component, ViewChild } from '@angular/core';
+import { Fragment, FragmentPickerComponent, FragmentService } from '@laruche/fragments';
 
 @Component({
     selector: 'app-preparation',
@@ -7,6 +7,8 @@ import { Fragment, FragmentService } from '@laruche/fragments';
     styleUrls: ['preparation.component.scss']
 })
 export class PreparationComponent {
+
+    @ViewChild(FragmentPickerComponent) picker: FragmentPickerComponent;
 
     readonly fragments = this.service.fragments;
     readonly activeFragment = this.service.onFocusFragment;
@@ -27,8 +29,8 @@ export class PreparationComponent {
         this.service.removeFragment(fragment);
     }
 
-    createHiddenFragment() {
-        this.service.createFragment(this.service.definitions[0]);
+    createFragment() {
+        this.picker.open(this.service.randomFragmentId());
     }
 
 }

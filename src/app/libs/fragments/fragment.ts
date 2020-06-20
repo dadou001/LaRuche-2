@@ -24,8 +24,10 @@ export interface Fragment extends FragmentConstructorArgs {
  * Metadata information about a fragment.
  */
 export interface FragmentDefinition {
-    /** name of the fragment. */
+    /** Name of the fragment. */
     name: string;
+    /** Url of the icon representing the fragment. A default icon is used if not specified. */
+    icon?: string;
     /** Type of the component that render an instance of the fragment. */
     component: ComponentType<any>;
     /** Constructor of the fragment. */
@@ -40,7 +42,6 @@ export interface FragmentDefinition {
 export abstract class BaseFragment implements Fragment {
     id: string;
     component: ComponentPortal<any>;
-
     constructor(args: FragmentConstructorArgs) {
         this.id = args.id;
         this.component = args.component;
@@ -89,6 +90,7 @@ export function DefineFragment(definition: Omit<FragmentDefinition, 'component'>
     // tslint:disable-next-line: only-arrow-functions
     return function(target: any) {
         document[REGISTRY] = document[REGISTRY] || [];
+        definition.icon = definition.icon || 'assets/icons/fragments/default.png';
         document[REGISTRY].push({
             ...definition,
             component: target

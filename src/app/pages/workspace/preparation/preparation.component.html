@@ -7,16 +7,16 @@
             mat-mini-fab
             color="primary"
             aria-label="Créer un fragment"
-            matTooltip="Créer un fragment caché"
-            (click)="createHiddenFragment()">
+            matTooltip="Créer un fragment"
+            (click)="createFragment()">
             <mat-icon>add</mat-icon>
         </button>
     </mat-toolbar>
-    <app-fragments
+    <app-fragment-list
         [fragments]="fragments|async"
         (active)="focusFragment($event)"
         (remove)="removeFragment($event)">
-    </app-fragments>
+    </app-fragment-list>
   </as-split-area>
   <as-split-area size="70">
       <div class="active-fragment-wrapper">
@@ -28,3 +28,4 @@
       </div>
   </as-split-area>
 </as-split>
+<app-fragment-picker></app-fragment-picker>

@@ -1,7 +1,7 @@
 // ANGULAR
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 // VENDORS
@@ -10,12 +10,12 @@ import { AngularSplitModule } from 'angular-split';
 
 // LIBS
 import { MaterialModule } from '@laruche/vendors';
+import { FragmentModule } from '@laruche/fragments';
 
 // MODULE
 import { StatementComponent } from './statement/statement.component';
 import { WorkspaceComponent } from './workspace.component';
 import { PreparationComponent } from './preparation/preparation.component';
-import { FragmentsComponent } from './preparation/fragments/fragments.component';
 
 const routes: Routes = [
     { path: '', component: WorkspaceComponent }
@@ -25,16 +25,17 @@ const routes: Routes = [
     imports: [
         CommonModule,
         FormsModule,
+        ReactiveFormsModule,
         RouterModule.forChild(routes),
 
         QuillModule,
         MaterialModule,
+        FragmentModule,
         AngularSplitModule,
     ],
     declarations: [
         WorkspaceComponent,
         StatementComponent,
-        FragmentsComponent,
         PreparationComponent,
     ]
 })

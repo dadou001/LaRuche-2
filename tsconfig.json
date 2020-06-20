@@ -3,6 +3,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
+        "@laruche/ui": ["src/app/libs/shared/ui/index.ts"],
         "@laruche/vendors": ["src/app/libs/vendors/index.ts"],
         "@laruche/fragments": ["src/app/libs/fragments/index.ts"]
     },

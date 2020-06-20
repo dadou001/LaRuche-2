@@ -4,19 +4,19 @@ import { Injectable, Injector } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { Fragment, FragmentDefinition, FRAGMENT_DEFINITION, FRAGMENT, FragmentConstructorArgs } from './fragment';
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
+import { AbstractControl, ValidatorFn } from '@angular/forms';
 
 /**
  * Service that handle fragments.
  */
 @Injectable({providedIn: 'root'})
 export class FragmentService {
+    private readonly _identifierPattern = /^[a-zA-Z_][a-zA-Z_0-9]*$/;
 
     private readonly _fragments = new BehaviorSubject<Fragment[]>([]);
     private readonly _activeFragment = new BehaviorSubject<Fragment|undefined>(undefined);
     private readonly _onCreateFragment = new Subject<Fragment>();
     private readonly _onRemoveFragment = new Subject<Fragment>();
-
-    private nextId = 0;
 
     /**
      * An observable of the fragments defined in the current exercise.
@@ -68,19 +68,50 @@ export class FragmentService {
     }
 
     /**
+     * Finds the fragment identifier by the given `id`.
+     * @param id The id of the fragment to find.
+     */
+    findFragment(id: string): Fragment|undefined {
+        return this._fragments.value.find(e => e.id === id);
+    }
+
+    /**
      * Creates a new instance of a fragment for the given metadata
      * and add it to the list of fragments of the exercise.
+     * @param id Identifier to give to the created fragment.
      * @param definition Metadata informations about the fragment to create.
+     * @throws {ReferenceError} if any of the argument is null
+     * @throws {InvalidFragmentIdentifierError} if id is not a valid identifier name.
+     * @throws {DuplicatedFragmentIdentifierError} if id is already used.
      * @returns The created fragment.
      */
-    createFragment(definition: FragmentDefinition): Fragment {
+    createFragment(id: string, definition: FragmentDefinition): Fragment {
+        if (id == null || !id.trim()) {
+            throw new ReferenceError('Argument "id" is required');
+        }
+
+        if (definition == null) {
+            throw new ReferenceError('Argument "definition" is required');
+        }
+
+        id = id.trim();
+        if (!id.match(this._identifierPattern)) {
+            throw new InvalidFragmentIdentifierError(id);
+        }
+
+        for (const e of this._fragments.value) {
+            if (e.id === id) {
+                throw new DuplicatedFragmentIdentifierError(id);
+            }
+        }
+
         const component = new ComponentPortal(
             definition.component,
             null,
         );
 
         const fragment = new definition.constructor({
-            id: 'Fragment#' + ++this.nextId,
+            id,
             component
         } as FragmentConstructorArgs);
 
@@ -119,4 +150,65 @@ export class FragmentService {
         );
     }
 
+    /**
+     * Gets a random unused fragment identifier.
+     */
+    randomFragmentId() {
+        const fragments = this._fragments.value;
+        const regex = new RegExp('^fragment(\\d+)$');
+        let nextSuffix = 1;
+        for (const fragment of fragments) {
+            const match = fragment.id.match(regex);
+            if (match) {
+                const suffix = Number.parseInt(match[1], 10);
+                if (suffix >= nextSuffix) {
+                    nextSuffix = suffix + 1;
+                }
+            }
+        }
+        return 'fragment' + nextSuffix;
+    }
+
+    fragmentIdentifierValidator(): ValidatorFn {
+        return (control: AbstractControl) => {
+            const value: string = control.value;
+            if (!value) {
+                return null;
+            }
+            if (!value.match(this._identifierPattern)) {
+                return  {
+                    invalidFragmentIdentifier: { value }
+                };
+            }
+            return null;
+        };
+    }
+
+    fragmentIdentifierUniqueValidator(): ValidatorFn {
+      return (control: AbstractControl) => {
+            const value: string = control.value;
+            if (!value) {
+                return null;
+            }
+            if (this.findFragment(value.trim()) != null) {
+                return  {
+                    duplicatedFragmentIdentifier: { value }
+                };
+            }
+            return null;
+        };
+    }
+}
+
+
+export class InvalidFragmentIdentifierError extends Error {
+    constructor(id: string) {
+        super(`"${id}" cannot be resolved to a fragment identifier.`);
+    }
+}
+
+export class DuplicatedFragmentIdentifierError extends Error {
+    constructor(id: string) {
+        super(`"${id}" is already used as a fragment identifier.`);
+    }
 }

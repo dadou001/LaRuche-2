@@ -1,12 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Fragment } from '@laruche/fragments';
+import { Fragment } from '../../fragment';
 
 @Component({
-    selector: 'app-fragments',
-    templateUrl: 'fragments.component.html',
-    styleUrls: ['fragments.component.scss']
+    selector: 'app-fragment-list',
+    templateUrl: 'fragment-list.component.html',
+    styleUrls: ['fragment-list.component.scss']
 })
-export class FragmentsComponent {
+export class FragmentListComponent {
     @Input() fragments: Fragment[];
     @Output() active = new EventEmitter<Fragment>();
     @Output() rename = new EventEmitter<Fragment>();

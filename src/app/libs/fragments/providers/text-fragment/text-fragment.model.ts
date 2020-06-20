@@ -1,4 +1,4 @@
-import { BaseFragment, FragmentConstructorArgs } from '../fragment';
+import { BaseFragment, FragmentConstructorArgs } from '../../fragment';
 
 export class TextFragment extends BaseFragment {
     text: string;

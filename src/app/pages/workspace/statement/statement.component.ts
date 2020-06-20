@@ -35,7 +35,7 @@ export class StatementComponent {
     }
 
     createFragment() {
-        this.fragments.createFragment(this.fragments.definitions[0]);
+        // this.fragments.createFragment(this.fragments.definitions[0]);
     }
 
 }
