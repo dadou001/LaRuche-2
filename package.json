@@ -24,7 +24,6 @@
     "@sweetalert2/ngx-sweetalert2": "^8.1.1",
     "angular-split": "^3.0.3",
     "katex": "^0.11.1",
-    "ng-dynamic-component": "^6.1.0",
     "ngx-blockly": "0.0.60",
     "ngx-monaco-editor": "^9.0.0",
     "ngx-pipes": "^2.7.3",
