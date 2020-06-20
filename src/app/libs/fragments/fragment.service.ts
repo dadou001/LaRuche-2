@@ -112,7 +112,8 @@ export class FragmentService {
 
         const fragment = new definition.constructor({
             id,
-            component
+            component,
+            definition
         } as FragmentConstructorArgs);
 
         const tokens = new WeakMap();
@@ -148,6 +149,17 @@ export class FragmentService {
                 return true;
             })
         );
+    }
+
+    /**
+     * Removes the fragment identified by `id` if it exists.
+     * @param fragment The id of the fragment to remove.
+     */
+    removeFragmentById(id: string) {
+        const fragment = this.findFragment(id);
+        if (fragment) {
+            this.removeFragment(fragment);
+        }
     }
 
     /**

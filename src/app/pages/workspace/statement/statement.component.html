@@ -3,7 +3,9 @@
   theme="snow"
   placeholder="Composez un exercice..."
   format="html"
+  [modules]="modules"
   [(ngModel)]="content"
+  (cdkObserveContent)="onChangeEditorNodes($event)"
   (onEditorCreated)="onCreateEditor($event)"
   >
     <div quill-editor-toolbar>
@@ -52,3 +54,4 @@
       </span>
     </div>
 </quill-editor>
+<app-fragment-picker></app-fragment-picker>

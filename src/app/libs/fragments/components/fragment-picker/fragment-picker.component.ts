@@ -53,9 +53,8 @@ export class FragmentPickerComponent implements OnInit {
     /**
      * Opens the picker.
      * @param id The identifier to give to the picked fragment.
-     * @param handler function to call with the selected fragment metadata.
      */
-    async open(id: string, handler?: FragmentPickerHandler) {
+    async open(id: string): Promise<Fragment|undefined> {
         this.form.patchValue({
             id
         });
@@ -70,9 +69,7 @@ export class FragmentPickerComponent implements OnInit {
             );
         }
 
-        if (handler) {
-            await handler(fragment);
-        }
+        return fragment;
     }
 
     trackBy(_: number, item: FragmentDefinition) {

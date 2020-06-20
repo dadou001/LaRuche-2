@@ -9,8 +9,14 @@ export interface FragmentConstructorArgs {
      *  The id of the fragment is used as a variable name.
      */
     id: string;
+
     /** Reference to the component that renders the view of the fragment. */
     component: ComponentPortal<any>;
+
+    /**
+     * Metadata information about the fragment.
+     */
+    definition: FragmentDefinition;
 }
 
 /**
@@ -42,9 +48,12 @@ export interface FragmentDefinition {
 export abstract class BaseFragment implements Fragment {
     id: string;
     component: ComponentPortal<any>;
+    definition: FragmentDefinition;
+
     constructor(args: FragmentConstructorArgs) {
         this.id = args.id;
         this.component = args.component;
+        this.definition = args.definition;
     }
 }
 
