@@ -2,6 +2,10 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "paths": {
+        "@laruche/vendors": ["src/app/libs/vendors/index.ts"],
+        "@laruche/fragments": ["src/app/libs/fragments/index.ts"]
+    },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,

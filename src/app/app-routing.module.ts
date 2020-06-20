@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-    { path: 'statement', loadChildren: () => import('./pages/statement/statement.module').then(m => m.StatementModule) },
-    { path: '**', redirectTo: 'statement', pathMatch: 'full' }
+    { path: 'workspace', loadChildren: () => import('./pages/workspace/workspace.module').then(m => m.WorkspaceModule) },
+    { path: '**', redirectTo: 'workspace', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -1,0 +1,23 @@
+.spacer {
+    flex: 1;
+}
+
+.mat-list {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow-y: auto;
+    .mat-chip {
+        cursor: pointer;
+        mat-icon {
+            margin-right: 4px;
+        }
+    }
+}
+
+::ng-deep {
+    .mat-list-item-content {
+        padding: 0 8px !important;
+    }
+}

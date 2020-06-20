@@ -1,10 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
+// ANGULAR
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// LIBS
+import { QuillModule } from 'ngx-quill';
+import { FragmentModule } from './libs/fragments/fragment.module';
+
+// MODULE
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { QuillModule } from 'ngx-quill';
+
 
 @NgModule({
     declarations: [
@@ -12,12 +18,12 @@ import { QuillModule } from 'ngx-quill';
     ],
     imports: [
         BrowserModule,
-        AppRoutingModule,
         BrowserAnimationsModule,
+        QuillModule.forRoot({}),
+        FragmentModule.forRoot(),
 
-        QuillModule.forRoot({})
+        AppRoutingModule,
     ],
-    providers: [],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
