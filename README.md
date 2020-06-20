@@ -11,7 +11,7 @@ La Ruche is an interactive editor of exercises for the WIMS and [PLaTon](https:/
 
 - Open a terminal window and run the following commands
 
-- git clone <https://github.com/dadou001/LaRuche-2>
+- git clone s<https://github.com/dadou001/LaRuche-2>
 - cd LaRuche-2
 
 - `./scripts/install.sh` or `sudo ./scripts/install.sh`
