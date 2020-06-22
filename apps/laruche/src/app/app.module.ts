@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // LIBS
-import { SharedVendorsModule } from '@laruche/shared/vendors';
+import { SharedVendorsModule, MaterialModule } from '@laruche/shared/vendors';
 import { FeatureFragmentModule } from '@laruche/feature/fragment';
 
 // MODULE
@@ -21,6 +21,7 @@ import { AppComponent } from './app.component';
         BrowserAnimationsModule,
 
         SharedVendorsModule,
+        MaterialModule,
         FeatureFragmentModule.forRoot(),
 
         AppRoutingModule,

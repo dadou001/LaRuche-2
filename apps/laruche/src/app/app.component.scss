@@ -1,0 +1,39 @@
+#logo {
+  height: 36px;
+  margin-right: 16px;
+}
+
+.mat-toolbar {
+  background-color: var(--header-background);
+
+  .mat-list, .mat-action-list {
+    display: flex;
+    padding: 0;
+    margin: 0;
+  }
+
+ .mat-list-item {
+    color: rgba(255, 255, 255, .7);
+  }
+
+  .mat-icon {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+  }
+
+}
+
+.mat-tab-header {
+  background-color: var(--header-background);
+  .mat-icon {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+  }
+  .mat-tab-label, .mat-tab-link {
+    color: white;
+  }
+}

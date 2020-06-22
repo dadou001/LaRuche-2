@@ -1,1 +1,24 @@
+<mat-toolbar>
+  <img id="logo" src="assets/icons/logo.png" alt="Logo" />
+<!--   <mat-action-list>
+    <ng-container *ngFor="let item of toolbar">
+      <button mat-list-item (click)="command(item.id)">
+        <app-icon [icon]="item.icon"></app-icon>
+        {{ item.label }}
+      </button>
+    </ng-container>
+  </mat-action-list> -->
+</mat-toolbar>
+<nav mat-tab-nav-bar color="warn">
+  <a
+    mat-tab-link
+    *ngFor="let page of pages"
+    [routerLink]="page.link"
+    routerLinkActive
+    #rla="routerLinkActive"
+    [active]="rla.isActive">
+    <mat-icon>{{page.icon}}</mat-icon>
+    {{page.title}}
+  </a>
+</nav>
 <router-outlet></router-outlet>
