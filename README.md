@@ -6,6 +6,7 @@ La Ruche is an interactive editor of exercises for the WIMS and [PLaTon](https:/
 
 - [NPM](https://www.npmjs.com/get-npm)
 - [Angular CLI](https://cli.angular.io)
+- [Nx](https://nx.dev/angular/getting-started/why-nx)
 
 ## Installation
 
@@ -27,6 +28,11 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run npm run affected:test to execute the unit tests affected by a change.
+
+## Understand the wsorkspace
+
+Run `npm run dep-graph` to see a diagram of the dependencies of the project.
 
 ## Further help
 
@@ -35,52 +41,48 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## File Structure
 
 ```txt
-| src/
-|   app/
-|      libs/
-|          fragments/
-|              components/
-|              providers/
-|           shared/ # shared modules|components|directives
+|   apps/
+|       laruche/
+|           src/
+|               app/
+|                   pages/
+|           assets/
+|           environments/
+|               environment.ts
+|               environment.prod.ts
+|           index.html
+|           styles.scss
+|   libs/
+|       feature/
+|           fragment/
+|       shared/
+|           ui/
 |           vendors/
-|                material/
-|                   material.module.ts
-|      pages/
-|          workspace/
-|              workspace.component.[ts|html|scss]
-|      app-routing.module.ts
-|      app.component.[ts|html|scss]
-|      app.component.module.ts
-|   assets/
-|   environments/
-|      environment.ts
-|      environment.prod.ts
-|   index.html
-|   styles.scss
 | types/
 |   blockly
 | angular.json
+| nx.json
 | package.json
 | tsconfig.json
 ```
 
 `
 
-## libs/fragments
+## libs/feature/fragment
 
 TODO
 
-## libs/shared
+## libs/shared/ui
 
 Declare modules|components|directives... used across the different pages of the application.
 
 TODO
 
-## libs/vendors
+## libs/shared/vendors
 
 TODO
 
-## pages
+## apps/laruche/src/app/pages
 
 Declare the pages of the application. Each page has it own module.
 
