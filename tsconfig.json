@@ -1,11 +1,11 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
-        "@laruche/ui": ["src/app/libs/shared/ui/index.ts"],
-        "@laruche/vendors": ["src/app/libs/vendors/index.ts"],
-        "@laruche/fragments": ["src/app/libs/fragments/index.ts"]
+      "@laruche/shared/ui": ["libs/shared/ui/src/index.ts"],
+      "@laruche/shared/vendors": ["libs/shared/vendors/src/index.ts"],
+      "@laruche/feature/fragment": ["libs/feature/fragment/src/index.ts"]
     },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
@@ -19,14 +19,9 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
-    "typeRoots": [
-      "node_modules/@types",
-      "./typing"
-    ],
-    "lib": [
-      "es2018",
-      "dom"
-    ]
+    "typeRoots": ["node_modules/@types", "./typing"],
+    "lib": ["es2018", "dom"],
+    "rootDir": "."
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

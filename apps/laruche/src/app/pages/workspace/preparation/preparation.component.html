@@ -1,0 +1,31 @@
+<as-split direction="horizontal" gutterSize="2">
+  <as-split-area size="30">
+    <mat-toolbar>
+        <span>Fragments</span>
+        <span class="spacer"></span>
+        <button
+            mat-mini-fab
+            color="primary"
+            aria-label="Créer un fragment"
+            matTooltip="Créer un fragment"
+            (click)="createFragment()">
+            <mat-icon>add</mat-icon>
+        </button>
+    </mat-toolbar>
+    <fragment-list
+        [fragments]="fragments|async"
+        (active)="focusFragment($event)"
+        (remove)="removeFragment($event)">
+    </fragment-list>
+  </as-split-area>
+  <as-split-area size="70">
+      <div class="active-fragment-wrapper">
+        <ng-container *ngIf="activeFragment|async as active">
+            <h2>{{ active.id }}</h2>
+            <mat-divider></mat-divider>
+            <ng-template [cdkPortalOutlet]="active.component"></ng-template>
+        </ng-container>
+      </div>
+  </as-split-area>
+</as-split>
+<fragment-picker></fragment-picker>
