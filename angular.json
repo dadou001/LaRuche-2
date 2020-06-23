@@ -106,7 +106,9 @@
               "apps/laruche/src/favicon.ico",
               "apps/laruche/src/assets"
             ],
-            "styles": ["apps/laruche/src/styles.scss"],
+            "styles": [
+              "apps/laruche/src/styles.scss"
+            ],
             "scripts": []
           }
         },
@@ -117,7 +119,9 @@
               "apps/laruche/tsconfig.app.json",
               "apps/laruche/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
@@ -142,7 +146,9 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/laruche-e2e/tsconfig.json",
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
@@ -160,7 +166,10 @@
               "libs/shared/ui/tsconfig.lib.json",
               "libs/shared/ui/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/shared/ui/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/ui/**"
+            ]
           }
         },
         "test": {
@@ -191,7 +200,10 @@
               "libs/shared/vendors/tsconfig.lib.json",
               "libs/shared/vendors/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/shared/vendors/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/vendors/**"
+            ]
           }
         },
         "test": {
@@ -222,7 +234,10 @@
               "libs/feature/fragment/tsconfig.lib.json",
               "libs/feature/fragment/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/feature/fragment/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/feature/fragment/**"
+            ]
           }
         },
         "test": {
@@ -241,5 +256,8 @@
       }
     }
   },
-  "defaultProject": "laruche"
+  "defaultProject": "laruche",
+  "cli": {
+    "analytics": false
+  }
 }
