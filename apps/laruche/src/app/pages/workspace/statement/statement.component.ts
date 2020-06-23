@@ -1,8 +1,9 @@
 import { Component, ViewChild, OnInit, OnDestroy } from '@angular/core';
 import { FragmentService, FragmentPickerComponent, Fragment, FragmentBlot } from '@laruche/feature/fragment';
 import { QuillModules } from 'ngx-quill';
-import Quill from 'quill';
 import { Subscription } from 'rxjs';
+import Quill from 'quill';
+
 
 @Component({
     selector: 'app-statement',
@@ -16,7 +17,22 @@ export class StatementComponent implements OnInit, OnDestroy {
     private readonly subscriptions: Subscription[] = [];
 
     private quill: Quill;
-    private quillContent: any;
+    private quillContent: any = `
+    <b>Enoncé</b>:<br/>
+    Sur une planète extra-solaire, une masse m = 27 kg est attachée à une corde et reste immobile.
+    Calculer la norme de la tension de la corde. On supposera que l'accélération de la pesanteur a pour valeur g = 8.5 m.s\(^{-2}\)
+    <br/><br/>
+
+    Tension de la corde T = __________ N<br/><br/>
+
+    <b>Préparation</b> :<br/>
+    Tirage au hasard de m (réel) = (entier entre 200 et 300) / 10
+    Tirage au hasard de g (réel) = (entier entre 20 et 150) / 10
+    Calcul de T (réel) = m * g<br/><br/>
+
+    <b>Analyse</b> :<br/>
+    La réponse de l'étudiant est numérique (réel)
+    `;
 
     modules: QuillModules = {
         formula: true,
@@ -69,7 +85,6 @@ export class StatementComponent implements OnInit, OnDestroy {
                     const refs = this.quill.root.querySelectorAll(
                         `[data-fragment='${id}']`
                     );
-
                     if (!refs.length) { // no more instance left inside the quill editor
                         this.fragments.removeFragmentById(id);
                     }
@@ -78,6 +93,11 @@ export class StatementComponent implements OnInit, OnDestroy {
         });
     }
 
+    /**
+     * Creates a `Fragment` object from the current selected text inside the quill editor.
+     * - if the user selection correspond to an exising fragment id, then the fragment will be reused.
+     * - otherwise this method will create a new fragment with an id set to the selected text.
+     */
     async createFragment() {
         const quill = this.quill;
 
@@ -105,17 +125,8 @@ export class StatementComponent implements OnInit, OnDestroy {
     private onRemoveFragment(fragment: Fragment) {
         const dom = this.quill.root;
         const nodes = dom.querySelectorAll(`[data-fragment='${fragment.id}']`);
-        // unwrap
         nodes.forEach((node: HTMLElement) => {
-            // get the element's parent node
             const parent = node.parentNode;
-            /* // move all children out of the element
-            while (node.firstChild) {
-                parent.insertBefore(node.firstChild, node);
-            }
-            // remove the empty element
-            parent.removeChild(node); */
-
             const newNode = document.createElement('span');
             newNode.textContent = fragment.id;
             parent.replaceChild(newNode, node);

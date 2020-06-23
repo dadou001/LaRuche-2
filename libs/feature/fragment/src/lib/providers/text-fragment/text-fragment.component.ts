@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { FRAGMENT, DefineFragment } from '../../fragment';
-import { TextFragment } from './text-fragment.model';
+import { TextFragment } from './text-fragment';
 
 @Component({
     selector: 'fragment-text',

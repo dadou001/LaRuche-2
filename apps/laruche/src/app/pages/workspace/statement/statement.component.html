@@ -1,4 +1,3 @@
-<!-- format = html | object | text | json -->
 <quill-editor
   theme="snow"
   placeholder="Composez un exercice..."
@@ -6,8 +5,7 @@
   [modules]="modules"
   [(ngModel)]="content"
   (cdkObserveContent)="onChangeEditorNodes($event)"
-  (onEditorCreated)="onCreateEditor($event)"
-  >
+  (onEditorCreated)="onCreateEditor($event)">
     <div quill-editor-toolbar>
       <span class="ql-formats">
         <select class="ql-font"></select>
@@ -50,7 +48,12 @@
         <button class="ql-formula"></button>
       </span>
       <span class="ql-formats">
-        <button style="width: auto; font-weight: 500;" title="Insérer un fragment" (click)="createFragment()">Insérer un fragment</button>
+        <button
+            style="width: auto; font-weight: 500;"
+            title="Insérer un fragment"
+            (click)="createFragment()">
+            Fragment
+        </button>
       </span>
     </div>
 </quill-editor>

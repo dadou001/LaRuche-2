@@ -1,6 +1,11 @@
 import { InjectionToken } from '@angular/core';
 import { ComponentType, ComponentPortal } from '@angular/cdk/portal';
 
+/*
+ Answer
+ Expression
+*/
+
 /**
  * Object passed to the constructor of the fragment classes.
  */
@@ -23,8 +28,10 @@ export interface FragmentConstructorArgs {
  * Representation of a dynamic part of an exercise.
  */
 export interface Fragment extends FragmentConstructorArgs {
-    value?: () => any;
+    toHtml(): any;
+    toScript(): any;
 }
+
 
 /**
  * Metadata information about a fragment.
@@ -55,6 +62,9 @@ export abstract class BaseFragment implements Fragment {
         this.component = args.component;
         this.definition = args.definition;
     }
+
+    abstract toHtml(): any;
+    abstract toScript(): any;
 }
 
 /**

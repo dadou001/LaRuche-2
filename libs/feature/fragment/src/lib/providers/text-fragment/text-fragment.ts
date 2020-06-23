@@ -7,8 +7,12 @@ export class TextFragment extends BaseFragment {
         super(args);
     }
 
-    value() {
-        return 0;
+    toHtml() {
+        return '';
+    }
+
+    toScript() {
+        return '';
     }
 }
 

@@ -51,8 +51,10 @@ export class FragmentPickerComponent implements OnInit {
     }
 
     /**
-     * Opens the picker.
+     * Opens the picker to select a fragment.
      * @param id The identifier to give to the picked fragment.
+     * @returns A promise that resolves with a `Fragment` object
+     *  if the user select a fragment or `undefined`.
      */
     async open(id: string): Promise<Fragment|undefined> {
         this.form.patchValue({
