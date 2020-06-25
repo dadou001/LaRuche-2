@@ -35,6 +35,7 @@
     "@angular/compiler": "^9.1.11",
     "@angular/core": "^9.1.11",
     "@angular/forms": "^9.1.11",
+    "@angular/localize": "^9.1.11",
     "@angular/material": "^9.2.4",
     "@angular/platform-browser": "^9.1.11",
     "@angular/platform-browser-dynamic": "^9.1.11",
@@ -56,7 +57,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.901.9",
-    "@angular/cli": "^9.1.9",
+    "@angular/cli": "^10.0.0",
     "@angular/compiler-cli": "~9.0.0",
     "@angular/language-service": "~9.0.0",
     "@nrwl/jest": "8.12.11",
