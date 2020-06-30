@@ -78,7 +78,7 @@ export abstract class BaseFragment implements Fragment {
  *    ...
  * })
  * export class MyComponent {
- *      construuctor(
+ *      constructor(
  *          ＠Inject(FRAGMENT) fragment: Fragment
  *      ) {}
  * }

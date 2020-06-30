@@ -1,0 +1,27 @@
+<h3>Advanced Options</h3>
+<p>
+<mat-checkbox [(ngModel)]="fragment.randomizer" name="randomizerBool">Random value</mat-checkbox>
+<mat-checkbox *ngIf="fragment.randomizer" [(ngModel)]="fragment.intervalBool" name="IntervalBool">Interval</mat-checkbox>
+<mat-checkbox *ngIf="fragment.randomizer" [(ngModel)]="fragment.exclude" name="excludeBool">Exclude some values</mat-checkbox>
+</p>
+<p>
+<mat-form-field appearance="outline">
+    <mat-label>Value</mat-label>
+    <input matInput [readonly]="fragment.randomizer" [(ngModel)]="fragment.value" type="text" placeholder="Value">
+</mat-form-field>
+</p>
+<p>
+<mat-form-field *ngIf="fragment.intervalBool || fragment.exclude" appearance="outline">
+    <mat-label>Settings</mat-label>
+    <mat-form-field *ngIf="fragment.intervalBool" appearance="outline">
+        <mat-label>Interval</mat-label>
+        <input matInput [hidden]="!fragment.intervalBool" [(ngModel)]="fragment.interval[0]" type="text" placeholder="Set min interval">
+        <input matInput [hidden]="!fragment.intervalBool" [(ngModel)]="fragment.interval[1]" type="text" placeholder="Set max interval">
+    </mat-form-field>
+    <mat-form-field *ngIf="fragment.exclude" appearance="outline">
+        <mat-label>Exclude</mat-label>
+        <input matInput [hidden]="!fragment.exclude" type="text" placeholder="Values to exclude">
+    </mat-form-field>
+</mat-form-field>
+</p>
+

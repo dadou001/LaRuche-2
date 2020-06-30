@@ -14,6 +14,7 @@ import { FRAGMENT_DEFINITION, listFragmentDefinitions } from './fragment';
 import { FragmentListComponent } from './components/fragment-list/fragment-list.component';
 import { FragmentPickerComponent } from './components/fragment-picker/fragment-picker.component';
 import { TextFragmentModule } from './providers/text-fragment/text-fragment.module';
+import { NumberFragmentModule } from './providers/number-fragment/number-fragment.module';
 
 @NgModule({
     declarations: [
@@ -35,6 +36,7 @@ import { TextFragmentModule } from './providers/text-fragment/text-fragment.modu
         FragmentPickerComponent,
 
         TextFragmentModule,
+        NumberFragmentModule,
     ]
 })
 export class FeatureFragmentModule {
