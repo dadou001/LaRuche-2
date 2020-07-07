@@ -23,7 +23,7 @@ export class NumberFragmentComponent implements OnInit, OnChanges {
     /*random number between min (included) and max (not included):*/
     randomNumber(min: number, max: number) {
         return Math.random() * (max - min) + min;
-      }
+    }
 
     ngOnInit(): void {
         this.fragment.randomizer = false;
@@ -34,7 +34,6 @@ export class NumberFragmentComponent implements OnInit, OnChanges {
     }
 
     ngOnChanges(changes: SimpleChanges) {
-
         if (this.fragment.randomizer){
             while (this.fragment.excludeValues.includes(this.fragment.value)){
                 this.fragment.value = this.randomNumber(this.fragment.interval[0], this.fragment.interval[1]);
