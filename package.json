@@ -30,6 +30,7 @@
   "private": true,
   "dependencies": {
     "@angular-devkit/schematics": "^10.0.0",
+    "@angular-eslint/template-parser": "0.0.1-alpha.32",
     "@angular/animations": "^10.0.0",
     "@angular/cdk": "^10.0.0",
     "@angular/common": "^10.0.0",
