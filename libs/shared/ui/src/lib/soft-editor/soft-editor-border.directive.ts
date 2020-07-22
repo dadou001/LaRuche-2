@@ -4,6 +4,12 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
     selector: '[uiSoftEditorCard]',
 })
 export class BorderCardDirective {
+   
+    private setBorder(color: string) {
+        let border = 'solid 4px ' + color;
+        this.el.nativeElement.style.border = border;
+    }
+
     constructor(private el: ElementRef) {
         this.setBorder('#f5f5f5');
     }
@@ -16,8 +22,9 @@ export class BorderCardDirective {
         this.setBorder('#f5f5f5');
     }
 
-    private setBorder(color: string) {
-        let border = 'solid 4px ' + color;
-        this.el.nativeElement.style.border = border;
+    @HostListener('keydown') onKeyDown(){
+        
     }
+
+    
 }

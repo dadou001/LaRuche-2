@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'ui-soft-editor',
@@ -15,4 +15,6 @@ export class SoftEditorComponent implements OnInit {
   onNameChange(val: any) {
     console.log('Changed', val)
   }
+
+
 }

@@ -1,3 +1,5 @@
-<div class="border-box" contenteditable (input)="onNameChange($event.target.innerHTML)" uiSoftEditorCard>
-   Something <mat-card-content>truc</mat-card-content>
-</div>
+<blockquote class="editor-box" contenteditable="true" (input)="onNameChange($event.target.innerHTML)" uiSoftEditorCard>
+   <p class="editor-paragraph">
+   Something <span class="var-embed" contenteditable="false">truc</span>
+   </p>
+</blockquote>
