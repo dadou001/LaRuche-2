@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // LIBS
 import { MaterialModule } from '@laruche/shared/vendors';
 import { SharedUiEmptyStateModule } from '@laruche/shared/ui';
+import { SoftEditorModule } from '@laruche/shared/ui';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { NgArrayPipesModule } from 'ngx-pipes';
 
@@ -28,6 +29,7 @@ import { NumberFragmentModule } from './providers/number-fragment/number-fragmen
 
         MaterialModule,
         SharedUiEmptyStateModule,
+        SoftEditorModule,
         SweetAlert2Module,
         NgArrayPipesModule,
     ],

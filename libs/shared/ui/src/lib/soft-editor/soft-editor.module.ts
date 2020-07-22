@@ -1,16 +1,15 @@
 
 // ANGULAR
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // LIBS
 import { MaterialModule } from '@laruche/shared/vendors';
-import { FeatureFragmentModule } from '@laruche/feature/fragment';
 
 // SOFT-EDITOR
 import { SoftEditorComponent } from './soft-editor.component';
+import { BorderCardDirective } from './soft-editor-border.directive';
 
 @NgModule({
     imports: [
@@ -19,10 +18,14 @@ import { SoftEditorComponent } from './soft-editor.component';
         ReactiveFormsModule,
 
         MaterialModule,
-        FeatureFragmentModule,
     ],
     declarations: [
-        SoftEditorComponent
-    ]
+        SoftEditorComponent,
+        BorderCardDirective,
+    ],
+    bootstrap: [ SoftEditorComponent ],
+    exports: [
+        SoftEditorComponent,
+      ]
 })
 export class SoftEditorModule { }

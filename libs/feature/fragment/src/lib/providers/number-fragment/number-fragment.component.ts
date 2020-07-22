@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FRAGMENT, DefineFragment } from '../../fragment';
 import { NumberFragment } from './number-fragment';
+import { SoftEditorComponent } from '@laruche/shared/ui';
 import { of } from 'rxjs';
 
 @Component({

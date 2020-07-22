@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '@laruche/shared/vendors';
+import { SoftEditorModule } from '@laruche/shared/ui';
 import { NumberFragmentComponent } from './number-fragment.component';
 
 @NgModule({
@@ -9,7 +10,8 @@ import { NumberFragmentComponent } from './number-fragment.component';
     imports: [
         CommonModule,
         FormsModule,
-        MaterialModule
+        MaterialModule,
+        SoftEditorModule,
     ],
     exports: [NumberFragmentComponent]
 })
