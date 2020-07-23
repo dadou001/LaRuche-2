@@ -10,6 +10,7 @@ import { MaterialModule } from '@laruche/shared/vendors';
 // SOFT-EDITOR
 import { SoftEditorComponent } from './soft-editor.component';
 import { BorderCardDirective } from './soft-editor-border.directive';
+import { KeyboardDirective } from './soft-editor-keyboard.directive';
 
 @NgModule({
     imports: [
@@ -22,6 +23,7 @@ import { BorderCardDirective } from './soft-editor-border.directive';
     declarations: [
         SoftEditorComponent,
         BorderCardDirective,
+        KeyboardDirective,
     ],
     bootstrap: [ SoftEditorComponent ],
     exports: [
