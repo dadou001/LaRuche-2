@@ -8,12 +8,11 @@ import { Component, HostListener, OnInit, OnChanges, SimpleChanges } from '@angu
 export class SoftEditorComponent implements OnInit {
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+  //  throw new Error('Method not implemented.');
   }
   str = 'truc';
 
   onNameChange(val: any) {
-    console.log('Changed', val)
   }
 
 
