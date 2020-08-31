@@ -2,7 +2,11 @@
     <ng-container *ngFor="let item of fragments; let last=last; trackBy: trackBy">
         <mat-list-item>
             <mat-chip-list>
-                <mat-chip color="primary" selected="true" (click)="active.emit(item)">
+                <mat-chip 
+                    color="primary"
+                    selected="true"
+                    (click)="active.emit(item)"
+                    [uiSoftEditorDrag]="item.id">
                     {{ item.id }}
                 </mat-chip>
             </mat-chip-list>

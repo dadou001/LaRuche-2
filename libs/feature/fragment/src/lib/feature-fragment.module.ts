@@ -2,6 +2,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DragDropModule, DragDrop } from '@angular/cdk/drag-drop';
 
 // LIBS
 import { MaterialModule } from '@laruche/shared/vendors';
@@ -16,6 +17,7 @@ import { FragmentListComponent } from './components/fragment-list/fragment-list.
 import { FragmentPickerComponent } from './components/fragment-picker/fragment-picker.component';
 import { TextFragmentModule } from './providers/text-fragment/text-fragment.module';
 import { NumberFragmentModule } from './providers/number-fragment/number-fragment.module';
+
 
 @NgModule({
     declarations: [
@@ -32,6 +34,7 @@ import { NumberFragmentModule } from './providers/number-fragment/number-fragmen
         SoftEditorModule,
         SweetAlert2Module,
         NgArrayPipesModule,
+        DragDropModule,
     ],
     exports: [
         FragmentListComponent,
@@ -39,6 +42,7 @@ import { NumberFragmentModule } from './providers/number-fragment/number-fragmen
 
         TextFragmentModule,
         NumberFragmentModule,
+
     ]
 })
 export class FeatureFragmentModule {

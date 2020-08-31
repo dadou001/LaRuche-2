@@ -10,12 +10,12 @@ exports.SoftEditorComponent = void 0;
 var core_1 = require("@angular/core");
 var SoftEditorComponent = /** @class */ (function () {
     function SoftEditorComponent() {
-        this.str = 'truc';
     }
     SoftEditorComponent.prototype.ngOnInit = function () {
-        //  throw new Error('Method not implemented.');
     };
-    SoftEditorComponent.prototype.onNameChange = function (val) {
+    SoftEditorComponent.prototype.createEmbed = function (event) {
+        var element = event;
+        this.item.push(element);
     };
     SoftEditorComponent = __decorate([
         core_1.Component({

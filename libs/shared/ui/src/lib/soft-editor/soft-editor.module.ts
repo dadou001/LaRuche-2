@@ -12,22 +12,29 @@ import { SoftEditorComponent } from './soft-editor.component';
 import { BorderCardDirective } from './soft-editor-border.directive';
 import { KeyboardDirective } from './soft-editor-keyboard.directive';
 
+// DRAG-DROP
+import { DropDirective } from './soft-editor-drop.directive';
+import { DragDirective } from './soft-editor-drag.directive';
+
+const API = [
+    SoftEditorComponent,
+    DropDirective,
+    DragDirective,
+];
+
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-
         MaterialModule,
     ],
     declarations: [
-        SoftEditorComponent,
         BorderCardDirective,
         KeyboardDirective,
+        ...API
     ],
     bootstrap: [ SoftEditorComponent ],
-    exports: [
-        SoftEditorComponent,
-      ]
+    exports: API
 })
 export class SoftEditorModule { }

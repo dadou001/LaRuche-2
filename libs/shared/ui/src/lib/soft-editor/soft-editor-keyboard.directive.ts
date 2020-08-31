@@ -1,5 +1,5 @@
 import { Directive, ElementRef, HostListener } from '@angular/core';
-;
+
 
 @Directive({
     selector: '[uiSoftEditorKeyboard]',
@@ -7,15 +7,13 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
 export class KeyboardDirective {
 
     constructor(private el: ElementRef<HTMLElement>) {
-        console.log('directive init');
     }
 
-    @HostListener('keydown', ['$event']) onKeyDown(event: KeyboardEvent){
+    @HostListener('keydown', ['$event'])
+    onKeyDown(event: KeyboardEvent){
         if (event.key === 'Delete' || event.key === 'Backspace' ){
             const span = this.el.nativeElement.querySelector('span');
             const selection = window.getSelection();
-            console.log(selection.focusNode, event.target);
-
             if (!selection.isCollapsed || !selection.rangeCount) {
                 return;
             }
@@ -40,10 +38,13 @@ export class KeyboardDirective {
             range.setStart(this.el.nativeElement, range.endOffset - 1);
 
             const previousNode = range.cloneContents().lastChild as HTMLElement;
-            if (previousNode?.contentEditable === 'false') {
+            if (previousNode && previousNode.contentEditable === 'false') {
                 // this is some rich content, e.g. smile. We should help the user to delete it
                 range.deleteContents();
                 event.preventDefault();
+
+                // REFERENCE TO THE DELETED EMBED
+                console.log(previousNode);
             }
         }
     }

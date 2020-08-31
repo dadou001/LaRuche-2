@@ -8,17 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 exports.KeyboardDirective = void 0;
 var core_1 = require("@angular/core");
-;
 var KeyboardDirective = /** @class */ (function () {
     function KeyboardDirective(el) {
         this.el = el;
-        console.log('directive init');
     }
     KeyboardDirective.prototype.onKeyDown = function (event) {
         if (event.key === 'Delete' || event.key === 'Backspace') {
             var span = this.el.nativeElement.querySelector('span');
             var selection = window.getSelection();
-            console.log(selection.focusNode, event.target);
             if (!selection.isCollapsed || !selection.rangeCount) {
                 return;
             }
@@ -42,10 +39,12 @@ var KeyboardDirective = /** @class */ (function () {
             }
             range.setStart(this.el.nativeElement, range.endOffset - 1);
             var previousNode = range.cloneContents().lastChild;
-            if ((previousNode === null || previousNode === void 0 ? void 0 : previousNode.contentEditable) === 'false') {
+            if (previousNode && previousNode.contentEditable === 'false') {
                 // this is some rich content, e.g. smile. We should help the user to delete it
                 range.deleteContents();
                 event.preventDefault();
+                // REFERENCE TO THE DELETED EMBED
+                console.log(previousNode);
             }
         }
     };
