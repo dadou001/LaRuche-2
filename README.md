@@ -119,3 +119,5 @@ TODO
 ### [Angular Split](https://www.npmjs.com/package/angular-split)
 
 TODO
+
+Cet éditeur est soutenu par le MESRI dans le cadre de l’AMI Transformation pédagogique et numérique
