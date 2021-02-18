@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Output, EventEmitter, HostBinding, Input, Renderer2, OnInit, ViewContainerRef, TemplateRef } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, Renderer2, OnInit} from '@angular/core';
 
 
 @Directive({
@@ -22,8 +22,10 @@ export class DragDirective implements OnInit {
             'draggable',
             true
         );
+        // à éviter / avoid it :
         // window, document
         // this.el.nativeElement.setAttribute('draggable', 'true');
+        // privilégier l'utilisation de renderer / use renderer instead of
     }
 
     @HostListener('dragstart', ['$event'])

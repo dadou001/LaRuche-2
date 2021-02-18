@@ -32,6 +32,7 @@ export class NumberFragmentComponent implements OnInit, OnChanges {
         this.fragment.intervalBool = false;
         this.fragment.interval = [0,100];
         this.fragment.excludeValues = [];
+        this.fragment.softEditor = 'lol';
     }
 
     ngOnChanges(changes: SimpleChanges) {

@@ -15,11 +15,14 @@ import { KeyboardDirective } from './soft-editor-keyboard.directive';
 // DRAG-DROP
 import { DropDirective } from './soft-editor-drop.directive';
 import { DragDirective } from './soft-editor-drag.directive';
+import { ContenteditableDirective } from './contenteditable.directive';
 
 const API = [
     SoftEditorComponent,
     DropDirective,
     DragDirective,
+    ContenteditableDirective
+    
 ];
 
 @NgModule({

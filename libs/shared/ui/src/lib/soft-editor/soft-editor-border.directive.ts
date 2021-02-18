@@ -22,7 +22,4 @@ export class BorderCardDirective {
         this.setBorder('#f5f5f5');
     }
 
-    @HostListener('keydown') onKeyDown(){
-
-    }
 }

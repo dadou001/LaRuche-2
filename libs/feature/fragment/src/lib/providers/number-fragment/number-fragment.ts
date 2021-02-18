@@ -1,6 +1,7 @@
 import { BaseFragment, FragmentConstructorArgs } from '../../fragment';
 
 export class NumberFragment extends BaseFragment {
+    softEditor: string;
     value: number;
     randomizer: boolean;
     exclude: boolean;

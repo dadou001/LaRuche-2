@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Output, EventEmitter, HostBinding, Renderer2, OnDestroy } from '@angular/core';
+import { Directive, ElementRef, HostListener, Output, EventEmitter, Renderer2, OnDestroy } from '@angular/core';
 
 
 @Directive({
@@ -68,13 +68,11 @@ export class DropDirective implements OnDestroy {
                 span
             );
 
-            /*
             this.renderer.insertBefore(
                 this.el.nativeElement,
                 span, // new,
-                null, // ref.nextSibling
+                this.el.nativeElement.nextSibling, // ref.nextSibling
             )
-            */
 
             this.listeners.push(
                 this.renderer.listen(
@@ -92,5 +90,4 @@ export class DropDirective implements OnDestroy {
             );
         }
     }
-
 }

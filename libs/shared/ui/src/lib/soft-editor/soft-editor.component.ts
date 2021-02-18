@@ -18,5 +18,6 @@ export class SoftEditorComponent implements OnInit {
     createEmbed(event: string){
       const element = event;
         this.item.push(element);
+        console.log('embed');
     }
 }
